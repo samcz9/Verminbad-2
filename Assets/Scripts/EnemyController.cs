@@ -10,6 +10,16 @@ public class EnemyController : MonoBehaviour
     private UnityEngine.AI.NavMeshAgent agent;
     private Animator animator;
 
+    private enum EnemyState
+    {
+        Idle,
+        Patrol,
+        Follow,
+        Attack
+    };
+
+    private EnemyState currentState;
+
     private void Awake()
     {
         enemy = GetComponent<EnemyUnit>();
@@ -18,6 +28,8 @@ public class EnemyController : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
+        currentState = EnemyState.Idle;
+
         // Get the Animator component
         //  animator = GetComponent<Animator>();
     }
@@ -25,7 +37,28 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        // Calculate direction and distance to player
+      // switch (currentState)
+      //   {
+      //       case EnemyState.Idle:
+      //           // Execute the idle behavior
+      //           Idle();
+      //           break;
+      //       case EnemyState.Patrol:
+      //           // Execute the patrol behavior
+      //           Patrol();
+      //           break;
+      //       case EnemyState.Follow:
+      //           Follow()
+      //           break;
+      //       case EnemyState.Attack:
+      //           // Execute the attack behavior
+      //           Attack();
+      //           break;
+      //       default:
+      //           break;
+      //   }
+      //   // Calculate direction and distance to player
+
         Vector3 directionToPlayer = playerTransform.position - childTransform.position;
         float distanceToPlayer = directionToPlayer.magnitude;
 
