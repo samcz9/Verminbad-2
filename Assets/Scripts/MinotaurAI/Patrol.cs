@@ -9,6 +9,7 @@ public class Patrol : Node
 {
     private Transform _transform;
     private Transform[] _waypoints;
+    private UnityEngine.AI.NavMeshAgent _navAgent;
     private Animator _animator;
 
      private int _currentWaypointIndex = 0;
@@ -23,6 +24,7 @@ public class Patrol : Node
         _transform = transform;
         _waypoints = waypoints;
         _animator = transform.GetComponent<Animator>();
+        _navAgent = transform.GetComponent<UnityEngine.AI.NavMeshAgent>();
         _animator.SetInteger("animation", 1);
     }
 
@@ -50,11 +52,12 @@ public class Patrol : Node
             }
             else
             {
-                _transform.position = Vector3.MoveTowards(
-                    _transform.position,
-                    wp.position,
-                    MinotaurBehaviour.speed * Time.deltaTime);
-                _transform.LookAt(wp.position);
+                // _transform.position = Vector3.MoveTowards(
+                //     _transform.position,
+                //     wp.position,
+                //     MinotaurBehaviour.speed * Time.deltaTime);
+                _navAgent.destination = wp.position;
+                // _transform.LookAt(wp.position);
             }
         }
     
