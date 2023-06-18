@@ -21,7 +21,8 @@ public class Pursue : Node
     {
         Transform target = (Transform)GetData("target");
 
-        if (Vector3.Distance(_transform.position, target.position) > .5f)
+        Debug.Log(Vector3.Distance(_transform.position, target.position));
+        if (Vector3.Distance(_transform.position, target.position) > 1.5f)
         {
             _navAgent.destination = target.position;
             _navAgent.speed = MinotaurBehaviour.sprintSpeed;

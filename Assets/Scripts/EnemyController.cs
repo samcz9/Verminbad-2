@@ -10,16 +10,6 @@ public class EnemyController : MonoBehaviour
     private UnityEngine.AI.NavMeshAgent agent;
     private Animator animator;
 
-    private enum EnemyState
-    {
-        Idle,
-        Patrol,
-        Follow,
-        Attack
-    };
-
-    private EnemyState currentState;
-
     private void Awake()
     {
         enemy = GetComponent<EnemyUnit>();
@@ -27,8 +17,6 @@ public class EnemyController : MonoBehaviour
         childTransform = transform.GetChild(0);
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-
-        currentState = EnemyState.Idle;
 
         // Get the Animator component
         //  animator = GetComponent<Animator>();

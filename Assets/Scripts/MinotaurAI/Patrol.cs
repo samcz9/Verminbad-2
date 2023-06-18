@@ -52,12 +52,7 @@ public class Patrol : Node
             }
             else
             {
-                // _transform.position = Vector3.MoveTowards(
-                //     _transform.position,
-                //     wp.position,
-                //     MinotaurBehaviour.speed * Time.deltaTime);
                 _navAgent.destination = wp.position;
-                // _transform.LookAt(wp.position);
             }
         }
     
