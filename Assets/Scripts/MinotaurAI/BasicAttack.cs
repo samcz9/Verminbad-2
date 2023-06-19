@@ -34,7 +34,6 @@ public class BasicAttack : Node
         if (_attackCounter >= _attackTime)
         { 
             _animator.SetBool("attack1", true);
-            _navAgent.isStopped = true;
             _attackCounter = 0f;
         }
 
