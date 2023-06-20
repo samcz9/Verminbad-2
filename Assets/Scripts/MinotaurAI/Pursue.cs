@@ -24,10 +24,12 @@ public class Pursue : Node
         Debug.Log(Vector3.Distance(_transform.position, target.position));
         if (Vector3.Distance(_transform.position, target.position) > 3f)
         {
+            Quaternion lookOnLook = Quaternion.LookRotation(target.position - _transform.position);
+            _transform.rotation = Quaternion.Slerp(_transform.rotation, lookOnLook, Time.deltaTime);
+
             _navAgent.destination = target.position;
             _navAgent.speed = MinotaurBehaviour.sprintSpeed;
             _animator.SetInteger("animation", 2);
-            _transform.LookAt(target.position);
         }
 
         state = NodeState.RUNNING;

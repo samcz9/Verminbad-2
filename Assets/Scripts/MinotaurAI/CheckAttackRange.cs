@@ -27,7 +27,6 @@ public class CheckAttackRange : Node
         Transform target = (Transform)t;
         if (Vector3.Distance(_transform.position, target.position) <= MinotaurBehaviour.attackRange)
         {
-
             state = NodeState.SUCCESS;
             return state;
         }
