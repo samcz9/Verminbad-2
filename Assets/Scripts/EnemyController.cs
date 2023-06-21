@@ -53,7 +53,7 @@ public class EnemyController : MonoBehaviour
         Debug.Log(distanceToPlayer);
         Debug.Log(enemy.attackRange);
 
-        agent.destination = playerTransform.position;
+        agent.SetDestination(playerTransform.position);
 
         animator.SetInteger("animation", 1);
         // Normalize direction and move enemy towards player

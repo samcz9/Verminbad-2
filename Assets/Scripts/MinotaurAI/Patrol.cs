@@ -52,7 +52,7 @@ public class Patrol : Node
             }
             else
             {
-                _navAgent.destination = wp.position;
+                _navAgent.SetDestination(wp.position);
             }
         }
     

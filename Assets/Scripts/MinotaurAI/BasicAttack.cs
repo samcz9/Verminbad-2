@@ -12,7 +12,7 @@ public class BasicAttack : Node
     private UnityEngine.AI.NavMeshAgent _navAgent;
     private Animator _animator;
     private float _attackTime = 2f;
-    private float _attackCounter = 0f;
+    private float _attackCounter = 1.5f;
 
 
     public BasicAttack(Transform transform)
